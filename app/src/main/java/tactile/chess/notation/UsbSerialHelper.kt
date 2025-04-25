@@ -30,7 +30,7 @@ class UsbSerialHelper(
             connection = usbManager.openDevice(device)
                 ?: throw IOException("Failed to open device connection")
 
-            // Get the first port (most devices have only one)
+            // Get the first port
             port = driver.ports[0]
             port?.open(connection)
             port?.setParameters(9600, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE)
@@ -57,7 +57,6 @@ class UsbSerialHelper(
     }
 
     override fun onNewData(data: ByteArray) {
-        // Convert received bytes to string and process
         val square = String(data).trim()
         if (square.length == 2) {
             onSquareReceived(square)

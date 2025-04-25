@@ -53,7 +53,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var exportButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Set theme before super.onCreate()
         setTheme(R.style.Theme_Elct201)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -115,12 +114,11 @@ class MainActivity : AppCompatActivity() {
 
                     override fun onRunError(e: Exception?) {
                         runOnUiThread {
-                            // Handle error (e.g., show Toast)
+                            // handle error by showing Toast
                         }
                     }
                 })
 
-                // Correct way to start the IO manager
                 Executors.newSingleThreadExecutor().execute {
                     usbIoManager?.start()
                 }
@@ -160,9 +158,7 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
     }
 
-
-
-
+    // Chess functions
     private fun processSquareInput(square: String) {
         if (!square.matches(Regex("[A-H][1-8]"))) {
             inputField.error = "Invalid square"
@@ -334,8 +330,7 @@ class MainActivity : AppCompatActivity() {
         chessBoardGrid.columnCount = 8
         chessBoardGrid.rowCount = 8
 
-        // Smaller square size to fit screen
-        val squareSize = dpToPx(36) // Reduced from 40
+        val squareSize = dpToPx(36)
 
         for (row in 0 until 8) {
             for (col in 0 until 8) {
@@ -345,8 +340,6 @@ class MainActivity : AppCompatActivity() {
                         height = squareSize
                         rowSpec = GridLayout.spec(row)
                         columnSpec = GridLayout.spec(col)
-                        marginStart = if (col == 0) dpToPx(2) else 0 // Reduced left margin
-                        marginEnd = if (col == 7) dpToPx(2) else 0 // Reduced right margin
                     }
                     gravity = Gravity.CENTER
                     textSize = 20f // Slightly smaller text
@@ -374,17 +367,7 @@ class MainActivity : AppCompatActivity() {
             append("[Date \"${java.text.SimpleDateFormat("yyyy.MM.dd").format(java.util.Date())}\"]\n")
             append("[Result \"*\"]\n\n")
 
-            // Combine moves (every two elements forms a move pair)
-            var moveNumber = 1
-            var i = 0
-            while (i < moveHistory.size) {
-                if (i % 2 == 0) {
-                    append("$moveNumber. ")
-                    moveNumber++
-                }
-                append("${moveHistory[i].trim()} ")
-                i++
-            }
+            append(moveHistory.joinToString(" "))
         }.toString()
 
         val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager

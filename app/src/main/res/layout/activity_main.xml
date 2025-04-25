@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- Input row -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,70 +29,90 @@
             android:textSize="16sp"/>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/clearButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Clear Selection"/>
-
-    <Button
-        android:id="@+id/exportButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Export PGN"
-        android:layout_marginTop="8dp"
-        android:layout_gravity="center_horizontal"/>
-
-    <!-- Horizontal coordinate labels -->
+    <!-- Button row -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginBottom="4dp">
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
 
-        <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="a" android:gravity="center"/>
-        <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="b" android:gravity="center"/>
-        <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="c" android:gravity="center"/>
-        <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="d" android:gravity="center"/>
-        <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="e" android:gravity="center"/>
-        <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="f" android:gravity="center"/>
-        <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="g" android:gravity="center"/>
-        <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="h" android:gravity="center"/>
+        <Button
+            android:id="@+id/clearButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Clear Selection"
+            android:layout_marginEnd="4dp"/>
+
+        <Button
+            android:id="@+id/exportButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Export PGN"
+            android:layout_marginStart="4dp"/>
     </LinearLayout>
 
+    <!-- Chess board with labels -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp">
 
-        <!-- Vertical coordinate labels -->
+        <!-- Column labels (a-h) -->
         <LinearLayout
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="8" android:gravity="center"/>
-            <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="7" android:gravity="center"/>
-            <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="6" android:gravity="center"/>
-            <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="5" android:gravity="center"/>
-            <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="4" android:gravity="center"/>
-            <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="3" android:gravity="center"/>
-            <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="2" android:gravity="center"/>
-            <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="1" android:gravity="center"/>
-        </LinearLayout>
-
-        <!-- Chess board grid -->
-        <androidx.gridlayout.widget.GridLayout
-            android:id="@+id/chessBoardGrid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:columnCount="8"
-            app:rowCount="8">
-        </androidx.gridlayout.widget.GridLayout>
+            android:layout_marginLeft="36dp"
+            android:layout_marginBottom="4dp">
+
+            <TextView android:layout_width="36dp" android:layout_height="36dp" android:text="a" android:gravity="center"/>
+            <TextView android:layout_width="36dp" android:layout_height="36dp" android:text="b" android:gravity="center"/>
+            <TextView android:layout_width="36dp" android:layout_height="36dp" android:text="c" android:gravity="center"/>
+            <TextView android:layout_width="36dp" android:layout_height="36dp" android:text="d" android:gravity="center"/>
+            <TextView android:layout_width="36dp" android:layout_height="36dp" android:text="e" android:gravity="center"/>
+            <TextView android:layout_width="36dp" android:layout_height="36dp" android:text="f" android:gravity="center"/>
+            <TextView android:layout_width="36dp" android:layout_height="36dp" android:text="g" android:gravity="center"/>
+            <TextView android:layout_width="36dp" android:layout_height="36dp" android:text="h" android:gravity="center"/>
+        </LinearLayout>
+
+        <!-- Chess board with row labels -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Row labels (1-8) -->
+            <LinearLayout
+                android:layout_width="36dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView android:layout_width="36dp" android:layout_height="36dp" android:text="8" android:gravity="center"/>
+                <TextView android:layout_width="36dp" android:layout_height="36dp" android:text="7" android:gravity="center"/>
+                <TextView android:layout_width="36dp" android:layout_height="36dp" android:text="6" android:gravity="center"/>
+                <TextView android:layout_width="36dp" android:layout_height="36dp" android:text="5" android:gravity="center"/>
+                <TextView android:layout_width="36dp" android:layout_height="36dp" android:text="4" android:gravity="center"/>
+                <TextView android:layout_width="36dp" android:layout_height="36dp" android:text="3" android:gravity="center"/>
+                <TextView android:layout_width="36dp" android:layout_height="36dp" android:text="2" android:gravity="center"/>
+                <TextView android:layout_width="36dp" android:layout_height="36dp" android:text="1" android:gravity="center"/>
+            </LinearLayout>
+
+            <!-- Chess board grid -->
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/chessBoardGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:columnCount="8"
+                app:rowCount="8">
+            </androidx.gridlayout.widget.GridLayout>
+        </LinearLayout>
     </LinearLayout>
 
-    <!-- Move notation display - ADDED THIS SECTION -->
+    <!-- Move notation display -->
     <TextView
         android:id="@+id/notationDisplay"
         android:layout_width="match_parent"
