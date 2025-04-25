@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Arduino-compatible devices (including Elegoo Uno R3) -->
+    <usb-device vendor-id="9025" product-id="67" />  <!-- Arduino LLC -->
+    <usb-device vendor-id="9025" product-id="32822" />  <!-- Arduino Uno R3 -->
+    <usb-device vendor-id="6790" product-id="29987" />  <!-- CH340 devices -->
+</resources>

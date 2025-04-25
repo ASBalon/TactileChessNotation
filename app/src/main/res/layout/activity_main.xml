@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/inputField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter square (e.g. 'e2')"
+            android:inputType="textCapCharacters"/>
+
+        <TextView
+            android:id="@+id/moveDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear Selection"/>
+
+    <Button
+        android:id="@+id/exportButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Export PGN"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <!-- Horizontal coordinate labels -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="4dp">
+
+        <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="a" android:gravity="center"/>
+        <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="b" android:gravity="center"/>
+        <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="c" android:gravity="center"/>
+        <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="d" android:gravity="center"/>
+        <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="e" android:gravity="center"/>
+        <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="f" android:gravity="center"/>
+        <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="g" android:gravity="center"/>
+        <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="h" android:gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Vertical coordinate labels -->
+        <LinearLayout
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="8" android:gravity="center"/>
+            <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="7" android:gravity="center"/>
+            <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="6" android:gravity="center"/>
+            <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="5" android:gravity="center"/>
+            <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="4" android:gravity="center"/>
+            <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="3" android:gravity="center"/>
+            <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="2" android:gravity="center"/>
+            <TextView android:layout_width="40dp" android:layout_height="40dp" android:text="1" android:gravity="center"/>
+        </LinearLayout>
+
+        <!-- Chess board grid -->
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/chessBoardGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:columnCount="8"
+            app:rowCount="8">
+        </androidx.gridlayout.widget.GridLayout>
+    </LinearLayout>
+
+    <!-- Move notation display - ADDED THIS SECTION -->
+    <TextView
+        android:id="@+id/notationDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        android:fontFamily="monospace"
+        android:text="1. "/>
+</LinearLayout>
